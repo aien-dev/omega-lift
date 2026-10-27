@@ -1,0 +1,15 @@
+#!/bin/sh
+# tools/lift c|python [FILE]  -- lift C or Python source to an Omega function unit.
+# stdout: .om unit (success only). stderr: lift: diagnostics. Exit 0 lifted,
+# 2 refused, 64 usage. LIFT_BIN overrides the compiled lifter (for example
+# the toc-generated C or Python build).
+set -eu
+case ${1-} in c) sel=c; unit=liftc;; python) sel=p; unit=liftpy;; *) echo 'usage: tools/lift c|python [FILE]' >&2; exit 64;; esac
+[ "$#" -le 2 ] || { echo 'usage: tools/lift c|python [FILE]' >&2; exit 64; }
+root=$(cd "$(dirname "$0")/.." && pwd)
+bin=${LIFT_BIN:-$root/build/$unit}
+if [ "$#" = 2 ]; then
+    { printf '%s' "$sel"; cat -- "$2"; } | $bin
+else
+    { printf '%s' "$sel"; cat; } | $bin
+fi

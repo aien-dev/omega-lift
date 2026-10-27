@@ -1,0 +1,20 @@
+{
+  "project_name": "omega-lift",
+  "goals": [
+    {
+      "id": "goal-init",
+      "title": "Bounded C/Python to Omega lifter",
+      "description": "Lift toc-generated C/Python and a human C/Python scalar subset back to .om; prove round trip and differential behaviour on Spark and Mac.",
+      "status": "Active",
+      "milestones": [
+        {"id": 1, "description": "Lifter source in seeded Omega, convertible by toc", "completed": false},
+        {"id": 2, "description": "Round-trip byte identity on >=12 toc units (C and Python)", "completed": false},
+        {"id": 3, "description": "Human C/Python fixtures differential-tested (>=200 vectors each)", "completed": false},
+        {"id": 4, "description": "Refusal paths pinned; mutation negative control", "completed": false},
+        {"id": 5, "description": "Mac self-conversion byte identity (clang C and python3)", "completed": false}
+      ],
+      "created_at": "2026-10-27T01:25:08Z",
+      "updated_at": "2026-10-27T01:25:08Z"
+    }
+  ]
+}
